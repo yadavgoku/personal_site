@@ -1,6 +1,51 @@
+/* Drop down links */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  object-position: right;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+/* End of dropdown links */
+
 body {
     font-family: 'Open Sans' ,Helvetica,Arial,sans-serif;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -38,8 +83,8 @@ h3 {
 .content {
     padding-top: 100px;
     padding-bottom: 40px;
-    background-color: rgba(0, 0, 0, 0.5);
-    background-image: url("<%= asset_path('background.jpg') %>");
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("<%= asset_path('slide03.jpg') %>");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
