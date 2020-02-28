@@ -15,49 +15,12 @@
 </head>
 <body>
 <div class="content">
-  <!-- Dropdown links -->
-  <div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn">Menu</button>
-    <div id="myDropdown" class="dropdown-content">
-      <%= link_to "Posts" , "/microposts" %>
-      <%= link_to "Users" , "/users" %>
-      <%= link_to "home" , "/static_pages/home" %>
 
-    </div>
-  </div>
-
-  <script>
-      /* When the user clicks on the button,
-      toggle between hiding and showing the dropdown content */
-      function myFunction() {
-          document.getElementById("myDropdown").classList.toggle("show");
-      }
-
-      // Close the dropdown if the user clicks outside of it
-      window.onclick = function(event) {
-          if (!event.target.matches('.dropbtn')) {
-              var dropdowns = document.getElementsByClassName("dropdown-content");
-              var i;
-              for (i = 0; i < dropdowns.length; i++) {
-                  var openDropdown = dropdowns[i];
-                  if (openDropdown.classList.contains('show')) {
-                      openDropdown.classList.remove('show');
-                  }
-              }
-          }
-      }
-  </script>
-
-
-
-
-
-  <!-- end of drop down links -->
 
     <img src="https://avatars2.githubusercontent.com/u/17301305" id="avatar">
 
 
-    <h1 id="main_heading">Yadu dev</h1>
+    <h1 id="main_heading">Iris</h1>
     <h3>sample cover page using ruby on rails</h3>
 
     <ul>

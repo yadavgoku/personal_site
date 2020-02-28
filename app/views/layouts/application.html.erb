@@ -1,15 +1,85 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SampleApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nifty little description">
+    <link rel="canonical" href="/">
+    <link rel="stylesheet" href="app/assets/stylesheets/front.css.erb">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <% if current_user %>
+    Signed in as <%= current_user.name %> |   <!-- Dropdown links -->
+    <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Menu</button>
+      <div id="myDropdown" class="dropdown-content">
+        <%= link_to "logout" , "/logout" %>
+        <%= link_to "Home" , "/static_pages/home" %>
+        <%= link_to "About" , "/static_pages/about" %>
+        <%= link_to "help" , "/static_pages/help" %>
+
+      </div>
+    </div>
+  <% else %>
+    <!-- Dropdown links -->
+    <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Menu</button>
+      <div id="myDropdown" class="dropdown-content">
+        <%= link_to "Login" , "/login" %>
+        <%= link_to "Signup" , "/signup" %>
+        <%= link_to "Home" , "/static_pages/home" %>
+        <%= link_to "About" , "/static_pages/about" %>
+        <%= link_to "help" , "/static_pages/help" %>
+
+      </div>
+    </div>
+
+
+    <script>
+        /* When the user clicks on the button,
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+
+  <% end %>
+
+  <% flash.each do |message_type, message| %>
+
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
+
     <%= yield %>
+
+
+
+    <%= debug(params) if Rails.env.development? %>>
   </body>
 </html>
